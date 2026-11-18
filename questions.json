@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "event": {
+    "name": "New Year Party 2026",
+    "dateLong": "11 DECEMBER 2026",
+    "day": "11",
+    "month": "DEC"
+  },
+  "steps": [
+    {
+      "id": "dress_code",
+      "type": "choice",
+      "title": "DRESS CODE",
+      "question": "อยากให้งานปีใหม่มีธีมการแต่งตัวไหม?",
+      "decor": ["🕶️", "🪩", "👗", "✨"],
+      "options": [
+        { "value": "themed", "label": "THEMED PARTY", "desc": "แต่งตัวตามธีม สนุกกับการครีเอทลุค", "emoji": "🥳", "color": "green", "reaction": "Costume mode: ON! 🎭" },
+        { "value": "free", "label": "FREE STYLE", "desc": "แต่งตัวได้ตามใจ สบาย ๆ ในสไตล์ตัวเอง", "emoji": "😎", "color": "red", "reaction": "Comfy & cool! 👟" }
+      ]
+    },
+    {
+      "id": "fashion_show",
+      "type": "choice",
+      "title": "FASHION SHOW",
+      "question": "อยากให้มีกิจกรรมประกวดชุดแต่งกาย พร้อมลุ้นรับรางวัลไหม?",
+      "decor": ["👑", "💃", "🏆", "📸"],
+      "options": [
+        { "value": "yes", "label": "YES! LET'S SHOW OFF!", "desc": "ขึ้นเวที โชว์ลุค ลุ้นรางวัล!", "emoji": "🏆", "color": "green", "reaction": "Strike a pose! 📸" },
+        { "value": "no", "label": "NO, LET'S JUST HAVE FUN!", "desc": "ไม่ต้องประกวด ขอสนุกชิล ๆ", "emoji": "🤪", "color": "red", "reaction": "Fun first! 🎈" }
+      ]
+    },
+    {
+      "id": "party_theme",
+      "type": "text",
+      "title": "PARTY THEME",
+      "question": "New Year Party 2026 อยากให้จัดธีมอะไร?",
+      "sub": "What's your dream party theme?",
+      "prompt": "If you could choose the theme, what would it be?",
+      "placeholder": "Type your party theme here...",
+      "icon": "💡",
+      "maxLength": 200,
+      "suggestions": ["🎬 Movie & Hollywood", "📼 Y2K / 2000s", "💜 Neon Party", "🧸 Cartoon Characters", "🎪 Carnival", "🪩 Disco", "🖤 Black & Gold", "🌈 Anything you can imagine!"],
+      "suggestionsMode": "fill",
+      "decor": ["🎬", "🎭", "🎪", "🌟"],
+      "reaction": "Love that idea! 💡"
+    },
+    {
+      "id": "grand_prize",
+      "type": "text",
+      "title": "THE GRAND PRIZE",
+      "question": "ถ้าเลือก LUCKY DRAW รางวัลใหญ่ได้ 1 อย่าง อยากได้อะไร?",
+      "sub": "Dream big! What prize would make your day?",
+      "placeholder": "iPhone, iPad, Gold, Electrical Appliances, Voucher, Cash or anything you wish!",
+      "icon": "🎁",
+      "maxLength": 200,
+      "suggestions": ["📱 iPhone", "💻 iPad", "🥇 Gold", "📺 Electrical Appliances", "🎟️ Voucher", "💵 Cash"],
+      "suggestionsMode": "fill",
+      "decor": ["🎁", "💰", "🎀", "🍀"],
+      "reaction": "Fingers crossed! 🤞"
+    },
+    {
+      "id": "game_time",
+      "type": "choice",
+      "title": "GAME TIME",
+      "question": "ถ้าเลือกกิจกรรมในงานได้ อยากเล่นแบบไหน?",
+      "decor": ["🎮", "🏅", "🎯", "🕹️"],
+      "options": [
+        { "value": "team", "label": "TEAM CHALLENGE", "desc": "เกมแข่งขันเป็นทีม ช่วยกันลุ้น ช่วยกันชนะ รับรางวัลไปด้วยกัน!", "emoji": "🤝", "color": "green", "reaction": "Teamwork makes the dream work! 💪" },
+        { "value": "solo", "label": "SOLO FUN", "desc": "เกมเดี่ยว เล่นง่าย ไม่ต้องรวมทีม สนุกได้ด้วยตัวเอง ลุ้นรับรางวัล!", "emoji": "🎮", "color": "red", "reaction": "Solo legend! 🦸" }
+      ]
+    },
+    {
+      "id": "are_you_in",
+      "type": "choice",
+      "title": "ARE YOU IN?",
+      "question": "ARE YOU READY FOR THE PARTY?",
+      "eventLine": true,
+      "sub": "พร้อมมาสนุก ส่งท้ายปี และสร้างโมเมนต์ดี ๆ ไปด้วยกันหรือยัง?",
+      "decor": ["📣", "🎉", "🥂", "🎆"],
+      "final": true,
+      "options": [
+        { "value": "yes", "label": "YES! COUNT ME IN!", "desc": "ไปแน่นอน!", "emoji": "🙌", "color": "green", "reaction": "Let's gooo! 🎉", "celebrate": "big" },
+        { "value": "maybe", "label": "MAYBE... LET'S SEE!", "desc": "ขอดูก่อนนะ", "emoji": "🤔", "color": "yellow", "reaction": "We'll save you a seat! 😉" },
+        { "value": "no", "label": "NO, NOT THIS TIME.", "desc": "ครั้งนี้ขอผ่าน", "emoji": "🥲", "color": "red", "reaction": "We'll miss you! 💔", "celebrate": "none" }
+      ]
+    }
+  ]
+}

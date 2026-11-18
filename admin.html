@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1a0b4a">
+  <title>Party Admin Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/party-bg.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <!-- ================= PIN LOCK ================= -->
+  <section id="lock" class="lock">
+    <div class="party-bg" aria-hidden="true">
+      <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+      <div class="stars"></div><div class="confetti-field"></div><div class="skyline"></div>
+    </div>
+    <div class="lock-card" id="lockCard">
+      <div class="lock-badge" aria-hidden="true">🔒</div>
+      <h1>Party Admin</h1>
+      <p class="lock-sub">ใส่รหัส PIN 4 หลัก เพื่อดูผลโหวต</p>
+      <div class="pin-dots" id="pinDots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <input id="pinInput" class="sr-only" type="password" inputmode="numeric" autocomplete="off" maxlength="4" aria-label="PIN">
+      <p class="pin-error" id="pinError" role="alert"></p>
+      <div class="keypad" id="keypad">
+        <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+        <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+        <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+        <button data-k="clear" class="k-alt" aria-label="Clear">C</button><button data-k="0">0</button><button data-k="del" class="k-alt" aria-label="Delete">⌫</button>
+      </div>
+      <button class="unlock-btn" id="unlockBtn" disabled>UNLOCK 🔓</button>
+      <a class="lock-back" href="./">← Back to Game</a>
+    </div>
+  </section>
+
+  <!-- ================= DASHBOARD ================= -->
+  <div id="dash" class="dash" hidden>
+    <aside class="side">
+      <div class="side-logo">
+        <span class="sl-crown">👑</span>
+        <span class="sl-ny">New Year</span>
+        <span class="sl-row"><b class="t">This</b><i>or</i><b class="h">That!</b></span>
+      </div>
+      <nav class="side-nav">
+        <button class="on" data-view="overview"><span>📊</span> Dashboard</button>
+        <button data-view="ideas"><span>💡</span> Ideas</button>
+        <button data-view="table"><span>📋</span> All Responses</button>
+      </nav>
+      <div class="side-foot">
+        <button id="qrBtn" class="side-link"><span>📱</span> QR Code</button>
+        <a class="side-link" href="./" target="_blank" rel="noopener"><span>🎮</span> Back to Game</a>
+        <button id="lockBtn" class="side-link danger"><span>🔒</span> Lock Dashboard</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-head">
+        <div>
+          <h1 id="viewTitle">Admin Dashboard</h1>
+          <p class="updated"><span class="live-dot"></span> <span id="updated">Loading…</span> · <span id="storeMode"></span></p>
+        </div>
+        <div class="head-actions">
+          <button class="btn ghost" id="refreshBtn" title="Refresh">↻ Refresh</button>
+          <button class="btn primary" id="csvBtn">⬇ Export CSV</button>
+        </div>
+      </header>
+
+      <!-- Overview -->
+      <section class="view" id="view-overview">
+        <div class="kpis" id="kpis"></div>
+        <div class="grid" id="charts"></div>
+      </section>
+
+      <!-- Ideas -->
+      <section class="view" id="view-ideas" hidden>
+        <div class="grid two" id="ideas"></div>
+      </section>
+
+      <!-- Table -->
+      <section class="view" id="view-table" hidden>
+        <div class="panel">
+          <div class="table-tools">
+            <input id="search" type="search" placeholder="🔎 ค้นหาคำตอบ / Session ID…" aria-label="Search responses">
+            <span id="tableCount" class="muted"></span>
+          </div>
+          <div class="table-wrap"><table id="table"></table></div>
+          <div class="pager" id="pager"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- QR modal -->
+  <div class="modal" id="qrModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+      <button class="modal-x" id="qrClose" aria-label="Close">✕</button>
+      <h2 id="qrTitle">Scan to play! 🎉</h2>
+      <div id="qrBox" class="qr-box"></div>
+      <input id="qrUrl" class="qr-url" aria-label="Game link">
+      <p class="muted small">แก้ลิงก์ได้ถ้าต้องการ (เช่น ลิงก์เว็บจริงหลังขึ้นระบบ) แล้ว QR จะอัปเดตทันที</p>
+      <button class="btn primary" id="qrDownload">⬇ Download QR (PNG)</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

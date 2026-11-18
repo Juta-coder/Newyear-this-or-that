@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1a0b4a">
+  <title>NEW YEAR THIS OR THAT!</title>
+  <meta name="description" content="Your Choice, Your Celebration! — เลือกไอเดียปาร์ตี้ New Year Party 2026">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Kanit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/party-bg.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+  <!-- Party backdrop -->
+  <div class="party-bg" aria-hidden="true">
+    <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+    <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
+    <div class="disco"><div class="disco-ball"></div></div>
+    <div class="neon neon-left">LET'S<br>PARTY!</div>
+    <div class="neon neon-right">NY<br>2026</div>
+    <div class="stars"></div>
+    <div class="confetti-field"></div>
+    <div class="skyline"></div>
+  </div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <main id="app" aria-live="polite">
+    <!-- screens are rendered by js/game.js -->
+    <div class="boot">🎉</div>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p style="color:#fff;text-align:center;padding:40px;font-family:sans-serif">Please enable JavaScript to play 🎉</p></noscript>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
