@@ -1,0 +1,11 @@
+{
+  "name": "newyear-this-or-that",
+  "version": "1.0.0",
+  "description": "NEW YEAR THIS OR THAT! — interactive party-preference game with anonymous data collection and a PIN-locked admin dashboard",
+  "main": "server.js",
+  "private": true,
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
